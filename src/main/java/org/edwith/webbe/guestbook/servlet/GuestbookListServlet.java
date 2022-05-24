@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +23,7 @@ public class GuestbookListServlet extends HttpServlet {
     	response.setContentType("text/html;charset=UTF-8");
     	
     	GuestbookDao guestbookDao = new GuestbookDao();
+    	System.out.println("dao 만들어지나요?" + guestbookDao);
     	List<Guestbook> booklist = guestbookDao.getGuestbooks();
 
     	System.out.println("방명록 가져오나");

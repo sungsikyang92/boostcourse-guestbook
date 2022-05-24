@@ -3,10 +3,10 @@ package org.edwith.webbe.guestbook.dto;
 import java.util.Date;
 
 public class Guestbook {
-    private Long id;
-    private String name;
-    private String content;
-    private Date regdate;
+    Long id;
+    String name;
+    String content;
+    Date regdate;
 
     public Guestbook(Long id, String name, String content, Date regdate) {
         this.id = id;

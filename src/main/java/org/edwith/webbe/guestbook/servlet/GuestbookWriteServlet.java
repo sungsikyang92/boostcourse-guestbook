@@ -23,10 +23,10 @@ public class GuestbookWriteServlet extends HttpServlet {
     	String content = request.getParameter("content");
     	
     	Guestbook guestbook = new Guestbook(name, content);
-    	
+    	System.out.println("추가요청servlet");
     	GuestbookDao guestbookDao = new GuestbookDao();
     	guestbookDao.addGuestbook(guestbook);
-    	System.out.println(guestbook+"저장되나");
+    	System.out.println("추가완료servlet");
     	response.sendRedirect("http://localhost:8080/guestbook/guestbooks");
     	
     	

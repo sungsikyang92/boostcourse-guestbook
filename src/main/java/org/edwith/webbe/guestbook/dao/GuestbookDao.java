@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 public class GuestbookDao {
-	DBUtil db = new DBUtil();
+//	DBUtil db = new DBUtil();
     public List<Guestbook> getGuestbooks(){
         List<Guestbook> list = new ArrayList<>();
 
@@ -26,11 +26,12 @@ public class GuestbookDao {
     	
     	String sql = "SELECT id, name, content, regdate from guestbook order by id";
     	
-    	try (Connection conn = db.getConnection();
+    	try (Connection conn = DBUtil.getConnection();
     			PreparedStatement ps = conn.prepareStatement(sql);){
 			try(ResultSet rs = ps.executeQuery()){
 				while(rs.next()) {
 					Long id = rs.getLong(1);
+					System.out.println(id);
 					String name = rs.getString(2);
 					String content = rs.getString(3);
 					Date regdate = rs.getDate(4);
@@ -45,7 +46,7 @@ public class GuestbookDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
+    	System.out.println("추가완");
         return list;
     }
 
@@ -60,7 +61,7 @@ public class GuestbookDao {
     	
     	String sql = "INSERT INTO guestbook (id, name, content, regdate) VALUES (id, ?, ?, now())";
  
-    	try (Connection conn = db.getConnection();
+    	try (Connection conn = DBUtil.getConnection();
     			PreparedStatement ps = conn.prepareStatement(sql);){
 			ps.setString(1, guestbook.getName());
 			ps.setString(2, guestbook.getContent());
@@ -69,5 +70,6 @@ public class GuestbookDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    	System.out.println("추가DAO");
     }
 }

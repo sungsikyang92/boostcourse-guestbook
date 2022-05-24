@@ -17,7 +17,7 @@
     <body>
 
         <div class="guestbooks"></div>
-            <c:forEach var="guestbook" items="${list}">
+            <c:forEach var="guestbook" items="${booklist}">
                 <div class="guestbook">
                     <div> <label>id : </label> ${guestbook.id}</div>
                     <div> <label>name : </label> ${guestbook.name}</div>
