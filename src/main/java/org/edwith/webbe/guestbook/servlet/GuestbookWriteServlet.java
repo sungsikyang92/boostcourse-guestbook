@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 public class GuestbookWriteServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 코드를 작성하세요.
+
     	response.setContentType("text/html; charset=UTF-8");
     	request.setCharacterEncoding("UTF-8");
     	
@@ -23,10 +23,10 @@ public class GuestbookWriteServlet extends HttpServlet {
     	String content = request.getParameter("content");
     	
     	Guestbook guestbook = new Guestbook(name, content);
-    	
+
     	GuestbookDao guestbookDao = new GuestbookDao();
     	guestbookDao.addGuestbook(guestbook);
-    	System.out.println(guestbook+"저장되나");
+
     	response.sendRedirect("http://localhost:8080/guestbook/guestbooks");
     	
     	
